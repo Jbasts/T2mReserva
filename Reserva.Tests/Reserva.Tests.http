@@ -1,0 +1,6 @@
+@Reserva.Tests_HostAddress = http://localhost:5118
+
+GET {{Reserva.Tests_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

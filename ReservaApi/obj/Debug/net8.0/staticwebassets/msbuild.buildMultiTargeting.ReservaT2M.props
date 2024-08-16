@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ReservaT2M.props" />
+</Project>
