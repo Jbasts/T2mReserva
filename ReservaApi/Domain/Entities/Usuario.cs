@@ -6,17 +6,17 @@
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
-        public List<Reserva> Reservas { get; set; }
+        public List<Reserva> Reservas { get; set; } = new List<Reserva>();
 
         public bool FazerReserva(Hotel hotel, Reserva reserva)
         {
-            // Implementação da lógica de fazer uma reserva
-            return true;
+            return hotel.ReservarQuarto(this, reserva);
         }
 
         public void CancelarReserva(Reserva reserva)
         {
-            // Implementação da lógica de cancelamento de reserva
+            reserva.Hotel.LiberarQuarto(reserva);
+            Reservas.Remove(reserva);
         }
     }
 }

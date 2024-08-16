@@ -1,4 +1,8 @@
-﻿namespace ReservaT2M.Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ReservaT2M.Domain.Entities
 {
     public class Hotel
     {
@@ -7,21 +11,32 @@
         public string Endereco { get; set; }
         public int NumeroQuartos { get; set; }
 
+        private List<Reserva> Reservas { get; set; } = new List<Reserva>();
+
         public bool ReservarQuarto(Usuario usuario, Reserva reserva)
         {
-            // Implementação da lógica de reserva
-            return true;
+            if (DisponibilidadeQuarto(reserva.DataCheckIn, reserva.DataCheckOut))
+            {
+                reserva.Usuario = usuario;
+                reserva.Hotel = this;
+                Reservas.Add(reserva);
+                usuario.Reservas.Add(reserva);
+                return true;
+            }
+            return false;
         }
 
         public void LiberarQuarto(Reserva reserva)
         {
-            // Implementação da lógica de liberação de quarto
+            Reservas.Remove(reserva);
         }
 
-        public bool DisponibilidadeQuarto()
+        public bool DisponibilidadeQuarto(DateTime dataCheckIn, DateTime dataCheckOut)
         {
-            // Implementação da lógica de verificação de disponibilidade
-            return true;
+            int quartosReservados = Reservas
+                .Count(r => r.DataCheckIn < dataCheckOut && r.DataCheckOut > dataCheckIn);
+
+            return quartosReservados < NumeroQuartos;
         }
     }
 }

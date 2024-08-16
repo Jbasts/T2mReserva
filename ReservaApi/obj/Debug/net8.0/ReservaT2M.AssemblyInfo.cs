@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReservaT2M")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa8afba3d5a56c61a262af7ca64299ceebc68acb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2688d17eb9e74a8a256c9635cb625dc7a5491bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReservaT2M")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReservaT2M")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

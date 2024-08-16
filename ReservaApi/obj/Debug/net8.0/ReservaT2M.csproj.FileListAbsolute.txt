@@ -98,3 +98,4 @@ C:\Users\j0n4s\source\repos\ReservaT2m\ReservaApi\obj\Debug\net8.0\refint\Reserv
 C:\Users\j0n4s\source\repos\ReservaT2m\ReservaApi\obj\Debug\net8.0\ReservaT2M.pdb
 C:\Users\j0n4s\source\repos\ReservaT2m\ReservaApi\obj\Debug\net8.0\ReservaT2M.genruntimeconfig.cache
 C:\Users\j0n4s\source\repos\ReservaT2m\ReservaApi\obj\Debug\net8.0\ref\ReservaT2M.dll
+C:\Users\j0n4s\source\repos\ReservaT2m\ReservaApi\obj\Debug\net8.0\ReservaT2M.sourcelink.json
