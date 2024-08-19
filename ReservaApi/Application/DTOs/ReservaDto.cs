@@ -14,8 +14,8 @@ namespace ReservaT2M.Application.DTOs
         public DateTime DataCheckIn { get; set; }
         public DateTime DataCheckOut { get; set; }
         public int NumeroQuarto { get; set; }
-        public int Hotel_Id { get; set; }
-        public int Usuario_Id { get; set; }
+        public int HotelId { get; set; }
+        public int UsuarioId { get; set; }
     }
 }
 

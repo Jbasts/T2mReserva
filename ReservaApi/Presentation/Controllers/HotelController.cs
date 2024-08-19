@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReservaT2M.Application.DTOs;
+using ReservaT2M.Application.Services;
 using ReservaT2M.Domain.Entities;
+using ReservaT2M.Domain.Services;
 
 [ApiController]
 [Route("api/[controller]")]
 public class HotelController : ControllerBase
 {
-    private readonly HotelService _hotelService;
+    private readonly IHotelService _hotelService;
 
-    public HotelController(HotelService hotelService)
+    public HotelController(IHotelService hotelService)
     {
         _hotelService = hotelService;
     }

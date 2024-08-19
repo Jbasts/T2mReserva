@@ -19,7 +19,7 @@ namespace ReservaT2M.Infrastructure.Repositories
 
         public async Task AddAsync(Hotel hotel)
         {
-            var sql = "INSERT INTO Hotel (Nome, Endereco, NumeroQuartos) VALUES (@Nome, @Endereco, @NumeroQuartos)";
+            var sql = "INSERT INTO Hotel (Nome, Endereco, Numero_Quartos) VALUES (@Nome, @Endereco, @NumeroQuartos)";
             using (var connection = Connection)
             {
                 await connection.ExecuteAsync(sql, hotel);
@@ -55,7 +55,7 @@ namespace ReservaT2M.Infrastructure.Repositories
 
         public async Task UpdateAsync(Hotel hotel)
         {
-            var sql = "UPDATE Hotel SET Nome = @Nome, Endereco = @Endereco, NumeroQuartos = @NumeroQuartos WHERE Id = @Id";
+            var sql = "UPDATE Hotel SET Nome = @Nome, Endereco = @Endereco, Numero_Quartos = @NumeroQuartos WHERE Id = @Id";
             using (var connection = Connection)
             {
                 await connection.ExecuteAsync(sql, hotel);

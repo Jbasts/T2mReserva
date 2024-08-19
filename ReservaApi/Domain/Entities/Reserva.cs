@@ -6,19 +6,19 @@ public class Reserva
     public DateTime DataCheckIn { get; set; }
     public DateTime DataCheckOut { get; set; }
     public int NumeroQuarto { get; set; }
-    public Hotel Hotel { get; set; }
-    public Usuario Usuario { get; set; }
+    public int HotelId { get; set; }
+    public int UsuarioId { get; set; }
 
     public double CalcularValor()
     {
-        double valorPorDia = 100.0; // Valor fixo por dia (exemplo)
+        double valorPorDia = 100.0;
         int dias = (DataCheckOut - DataCheckIn).Days;
 
         return dias * valorPorDia;
     }
 
-    public bool VerificarDisponibilidade()
-    {
-        return Hotel.DisponibilidadeQuarto(DataCheckIn, DataCheckOut);
-    }
+    //public bool VerificarDisponibilidade()
+    //{
+    //    return Hotel.DisponibilidadeQuarto(DataCheckIn, DataCheckOut);
+    //}
 }

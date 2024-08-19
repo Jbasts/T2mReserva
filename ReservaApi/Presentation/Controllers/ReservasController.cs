@@ -24,8 +24,8 @@ public class ReservaController : ControllerBase
             DataCheckIn = r.DataCheckIn,
             DataCheckOut = r.DataCheckOut,
             NumeroQuarto = r.NumeroQuarto,
-            Hotel_Id = r.Hotel.Id,
-            Usuario_Id = r.Usuario.Id
+            HotelId = r.HotelId,
+            UsuarioId = r.UsuarioId
         }));
     }
 
@@ -38,29 +38,22 @@ public class ReservaController : ControllerBase
 
         return Ok(new ReservaDto
         {
-            Id = reserva.Id,
+            Id = id,
             DataCheckIn = reserva.DataCheckIn,
             DataCheckOut = reserva.DataCheckOut,
             NumeroQuarto = reserva.NumeroQuarto,
-            Hotel_Id = reserva.Hotel.Id,
-            Usuario_Id = reserva.Usuario.Id
+            HotelId = reserva.HotelId,
+            UsuarioId = reserva.UsuarioId
         });
     }
 
     [HttpPost]
     public async Task<ActionResult> CreateReserva(ReservaDto reservaDto)
     {
-        var reserva = new Reserva
-        {
-            DataCheckIn = reservaDto.DataCheckIn,
-            DataCheckOut = reservaDto.DataCheckOut,
-            NumeroQuarto = reservaDto.NumeroQuarto,
-            Hotel = new Hotel { Id = reservaDto.Hotel_Id },
-            Usuario = new Usuario { Id = reservaDto.Usuario_Id }
-        };
+       
 
-        await _reservaService.CriarReservaAsync(reserva);
-        return CreatedAtAction(nameof(GetReserva), new { id = reserva.Id }, reservaDto);
+        await _reservaService.CriarReservaAsync(reservaDto);
+        return CreatedAtAction(nameof(GetReserva), new { id = reservaDto.Id }, reservaDto);
     }
 
     [HttpPut("{id}")]
@@ -72,8 +65,8 @@ public class ReservaController : ControllerBase
             DataCheckIn = reservaDto.DataCheckIn,
             DataCheckOut = reservaDto.DataCheckOut,
             NumeroQuarto = reservaDto.NumeroQuarto,
-            Hotel = new Hotel { Id = reservaDto.Hotel_Id },
-            Usuario = new Usuario { Id = reservaDto.Usuario_Id }
+            HotelId = reservaDto.HotelId,
+            UsuarioId = reservaDto.UsuarioId
         };
 
         await _reservaService.AtualizarReservaAsync(id, reserva);

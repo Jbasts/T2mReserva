@@ -1,37 +1,41 @@
 ﻿using ReservaT2M.Domain.Entities;
 using ReservaT2M.Domain.Repositories;
+using ReservaT2M.Domain.Services;
 
-public class HotelService
+namespace ReservaT2M.Application.Services
 {
-    private readonly IHotelRepository _hotelRepository;
-
-    public HotelService(IHotelRepository hotelRepository)
+    public class HotelService : IHotelService
     {
-        _hotelRepository = hotelRepository;
-    }
+        private readonly IHotelRepository _hotelRepository;
 
-    public async Task CriarHotelAsync(Hotel hotel)
-    {
-        await _hotelRepository.AddAsync(hotel);
-    }
+        public HotelService(IHotelRepository hotelRepository)
+        {
+            _hotelRepository = hotelRepository;
+        }
 
-    public async Task<IEnumerable<Hotel>> ObterHoteisAsync()
-    {
-        return await _hotelRepository.GetAllAsync();
-    }
+        public async Task CriarHotelAsync(Hotel hotel)
+        {
+            await _hotelRepository.AddAsync(hotel);
+        }
 
-    public async Task<Hotel> ObterHotelPorIdAsync(int id)
-    {
-        return await _hotelRepository.GetByIdAsync(id);
-    }
+        public async Task<IEnumerable<Hotel>> ObterHoteisAsync()
+        {
+            return await _hotelRepository.GetAllAsync();
+        }
 
-    public async Task AtualizarHotelAsync(int id, Hotel hotel)
-    {
-        await _hotelRepository.UpdateAsync(hotel);
-    }
+        public async Task<Hotel> ObterHotelPorIdAsync(int id)
+        {
+            return await _hotelRepository.GetByIdAsync(id);
+        }
 
-    public async Task DeletarHotelAsync(int id)
-    {
-        await _hotelRepository.DeleteAsync(id);
+        public async Task AtualizarHotelAsync(int id, Hotel hotel)
+        {
+            await _hotelRepository.UpdateAsync(hotel);
+        }
+
+        public async Task DeletarHotelAsync(int id)
+        {
+            await _hotelRepository.DeleteAsync(id);
+        }
     }
 }

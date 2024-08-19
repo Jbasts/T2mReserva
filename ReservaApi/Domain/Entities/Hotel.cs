@@ -17,8 +17,8 @@ namespace ReservaT2M.Domain.Entities
         {
             if (DisponibilidadeQuarto(reserva.DataCheckIn, reserva.DataCheckOut))
             {
-                reserva.Usuario = usuario;
-                reserva.Hotel = this;
+                reserva.UsuarioId = usuario.Id;
+                reserva.HotelId = Id;
                 Reservas.Add(reserva);
                 usuario.Reservas.Add(reserva);
                 return true;

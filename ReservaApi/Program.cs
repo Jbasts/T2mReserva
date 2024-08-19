@@ -1,5 +1,6 @@
 using ReservaT2M.Application.Services;
 using ReservaT2M.Domain.Repositories;
+using ReservaT2M.Domain.Services;
 using ReservaT2M.Infrastructure.Messaging;
 using ReservaT2M.Infrastructure.Repositories;
 
@@ -11,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ReservaService>();
-builder.Services.AddScoped<HotelService>();
+builder.Services.AddScoped<IHotelService ,HotelService>();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
 builder.Services.AddScoped<IHotelRepository, HotelRepository>();
